@@ -24,23 +24,33 @@ public class Main {
 
     private static void mayor() {
         int mayor=0;
-        for (int i=0;i<Personas.size();i++) {
-
+        String nommayor = "";
+        for (Persona p : Personas){
+            if (p.calcularedad()>mayor) {
+                mayor = p.calcularedad();
+                nommayor = p.getNombre();
+            }
         }
-        JOptionPane.showMessageDialog(null,"El mayor es");
+        JOptionPane.showMessageDialog(null,"El mayor es " + nommayor);
     }
 
     private static void elche() {
-        for (int i=0;i<Personas.size();i++) {
-
+        int cont = 0;
+        for (Persona p : Personas){
+            if ((p.getCiudad().toUpperCase()).equals("ELCHE")) {
+                cont++;
+            }
         }
-        JOptionPane.showMessageDialog(null,"Residentes en Elche: ");
+        JOptionPane.showMessageDialog(null,"Residentes en Elche: " + cont);
     }
 
     private static void mayoresedad() {
-        for (int i=0;i<Personas.size();i++) {
-
+        int cont = 0;
+        for (Persona p : Personas){
+            if (p.calcularedad()>=18) {
+                cont++;
+            }
         }
-        JOptionPane.showMessageDialog(null,"Mayores de edad: ");
+        JOptionPane.showMessageDialog(null,"Mayores de edad: " + cont);
     }
 }
