@@ -8,6 +8,17 @@ public class Main {
 
     public static void main(String[] args) {
         Personas = new ArrayList<>();
+        try {
+            bucle();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error al introducir los datos. " +
+                    "Vuelve a intentarlo");
+            bucle();
+        }
+    }
+
+    private static void bucle() {
         do {
             crearusuario();
         } while(JOptionPane.showConfirmDialog(null,"¿Quieres añadir más usuarios?",
@@ -18,21 +29,14 @@ public class Main {
     }
 
     private static void crearusuario() {
-        try {
-            Persona a = new Persona(
-                    JOptionPane.showInputDialog("Introduce el nombre"),
-                    JOptionPane.showInputDialog("Introduce la fecha de nacimiento (dd/MM/yyyy)"),
-                    JOptionPane.showInputDialog("Introduce la dirección"),
-                    Integer.parseInt(JOptionPane.showInputDialog("Introduce el código postal")),
-                    JOptionPane.showInputDialog("Introduce la ciudad")
-            );
-            Personas.add(a);
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error al introducir los datos. " +
-                    "Vuelve a intentarlo");
-            crearusuario();
-        }
+        Persona a = new Persona(
+                JOptionPane.showInputDialog("Introduce el nombre"),
+                JOptionPane.showInputDialog("Introduce la fecha de nacimiento (dd/MM/yyyy)"),
+                JOptionPane.showInputDialog("Introduce la dirección"),
+                Integer.parseInt(JOptionPane.showInputDialog("Introduce el código postal")),
+                JOptionPane.showInputDialog("Introduce la ciudad")
+        );
+        Personas.add(a);
     }
 
     private static void mayor() {
@@ -48,13 +52,14 @@ public class Main {
     }
 
     private static void elche() {
-        int cont = 0;
+        StringBuilder msg = new StringBuilder();
         for (Persona p : Personas){
             if ((p.getCiudad().toUpperCase()).equals("ELCHE")) {
-                cont++;
+                msg.append(p.getNombre()).append(", ");
             }
         }
-        JOptionPane.showMessageDialog(null,"Residentes en Elche: " + cont);
+        msg.deleteCharAt(msg.length()-2);
+        JOptionPane.showMessageDialog(null,"Residentes en Elche: " + msg);
     }
 
     private static void mayoresedad() {
