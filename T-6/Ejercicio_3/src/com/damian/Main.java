@@ -8,18 +8,29 @@ public class Main {
 
     public static void main(String[] args) {
         Personas = new ArrayList<>();
-
-        Persona Manolo = new Persona("Manolo","20/04/2002", "Tierno Galván 3 2A", 25565, "Herreruela");
-        Personas.add(Manolo);
-        Persona Pepe = new Persona("Pepe","20/04/1990", "Paseo Estraburgo 4 4C", 01002, "Elche");
-        Personas.add(Pepe);
-        Persona Laura = new Persona("Laura","24/07/2002", "Yoquese 9 4C", 15506, "Daganzo de Arriba");
-        Personas.add(Laura);
-        Persona Ajelandro = new Persona("Laura","24/07/2006", "Yoquese 3 4C", 15506, "Daganzo de Arriba");
-
+        do {
+            crearusuario();
+        } while(JOptionPane.showConfirmDialog(null,"¿Quieres añadir más usuarios?","Confirmar",JOptionPane.YES_NO_OPTION)==0);
         mayor();
         elche();
         mayoresedad();
+    }
+
+    private static void crearusuario() {
+        try {
+            Persona a = new Persona(
+                    JOptionPane.showInputDialog("Introduce el nombre"),
+                    JOptionPane.showInputDialog("Introduce la fecha de nacimiento (dd/MM/yyyy)"),
+                    JOptionPane.showInputDialog("Introduce la dirección"),
+                    Integer.parseInt(JOptionPane.showInputDialog("Introduce el código postal")),
+                    JOptionPane.showInputDialog("Introduce la ciudad")
+            );
+            Personas.add(a);
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error al introducir los datos. Vuelve a intentarlo");
+            crearusuario();
+        }
     }
 
     private static void mayor() {
