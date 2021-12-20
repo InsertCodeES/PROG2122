@@ -10,7 +10,8 @@ public class Main {
         Personas = new ArrayList<>();
         do {
             crearusuario();
-        } while(JOptionPane.showConfirmDialog(null,"¿Quieres añadir más usuarios?","Confirmar",JOptionPane.YES_NO_OPTION)==0);
+        } while(JOptionPane.showConfirmDialog(null,"¿Quieres añadir más usuarios?",
+                "Confirmar",JOptionPane.YES_NO_OPTION)==0);
         mayor();
         elche();
         mayoresedad();
@@ -28,7 +29,8 @@ public class Main {
             Personas.add(a);
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error al introducir los datos. Vuelve a intentarlo");
+            JOptionPane.showMessageDialog(null,"Error al introducir los datos. " +
+                    "Vuelve a intentarlo");
             crearusuario();
         }
     }
