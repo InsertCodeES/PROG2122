@@ -11,12 +11,24 @@ public class Estudio {
     private LocalDate fechaFundacion;
     private String pais;
     private ArrayList<String> telefonos;
+    private ArrayList<String> peliculas;
 
     // Estudio NO se relaciona con película
 
     // Constructor sobrecargado
     public Estudio(){
 
+    }
+
+    public Estudio(String nombre, String ciudad, String direccion, String dirWeb, LocalDate fechaFundacion, String pais, ArrayList<String> telefonos, ArrayList<String> peliculas) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.dirWeb = dirWeb;
+        this.fechaFundacion = fechaFundacion;
+        this.pais = pais;
+        this.telefonos = telefonos;
+        this.peliculas = peliculas;
     }
 
     public Estudio(String nombre, String ciudad, String direccion, String dirWeb, LocalDate fechaFundacion, String pais, ArrayList<String> telefonos) {
@@ -96,12 +108,27 @@ public class Estudio {
         this.telefonos = telefonos;
     }
 
+    public ArrayList<String> getPeliculas() {
+        return peliculas;
+    }
+
+    public void setPeliculas(ArrayList<String> peliculas) {
+        this.peliculas = peliculas;
+    }
+
     public void setTelefono(String t)
     {
         if (this.telefonos == null) // Por si no está creado.
             this.telefonos = new ArrayList<>();
 
         // Opción dos new en el constructor.
+        this.telefonos.add(t);
+    }
+
+    public void setPelicula(String t) {
+        if (this.telefonos == null) {
+            this.telefonos = new ArrayList<>();
+        }
         this.telefonos.add(t);
     }
 }
