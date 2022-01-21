@@ -7,15 +7,15 @@ public class Mascota
     private String raza;
     private String nombre;
     private LocalDate fechaNacimiento;
-    private float peso;
+    private String peso;
     private String sexo;
-    private float longitud;
+    private String longitud;
     private String color;
 
     private Cliente dueño;
     private Veterinario v;
 
-    public Mascota(String raza, String nombre, LocalDate fechaNacimiento, float peso, String sexo, float longitud, String color) {
+    public Mascota(String raza, String nombre, LocalDate fechaNacimiento, String peso, String sexo, String longitud, String color) {
         this.raza = raza;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -49,11 +49,11 @@ public class Mascota
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public float getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -65,11 +65,11 @@ public class Mascota
         this.sexo = sexo;
     }
 
-    public float getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(float longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 

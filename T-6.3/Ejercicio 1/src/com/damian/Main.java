@@ -3,6 +3,7 @@ package com.damian;
 import Excepciones.DatoNoValido;
 import Modelo.*;
 import java.awt.Component;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
 public class Main {
     private static ArrayList<Veterinario> listaVeterinarios;
     private static ArrayList<Mascota> listaMascotas;
+    private static ArrayList<Cliente> listaClientes;
 
     public Main() {
     }
@@ -82,15 +84,56 @@ public class Main {
         while(seguir) {
             listaMascotas.add(new Mascota(solicitarDato("Raza", "Introduce la raza",
                     "^[A-Z][a-z]+([ ][A-Z][a-z]+)*$"), solicitarDato("Nombre", "Introduce el nombre",
-                    "^[A-Z][a-z]+([ ][A-Z][a-z]+)*$"), solicitarDato("Fecha de nacimiento",
-                    "Introduce la fecha de nacimiento (DD/mm/YYYY)", "^[0-9]{2}[/][0-9]{2}+[/][0-9]{4}+$"),
-                    solicitarDato("Peso", "Introduzca el peso", "^[0-9]{2}$"), solicitarDato("Sexo",
+                    "^[A-Z][a-z]+([ ][A-Z][a-z]+)*$"), LocalDate.now(), solicitarDato("Peso",
+                    "Introduzca el peso", "^[0-9]{2}$"), solicitarDato("Sexo",
                     "Introduce el sexo (M/H)", "^[MmHh]$"), solicitarDato("Longitud",
-                    "Introduce la longitud (cm)", "^\d$")));
+                    "Introduce la longitud (cm)", "^[0-9]$"), solicitarDato("Color",
+                    "Introduce el color", "^[MmHh]$")));
             int respuesta = JOptionPane.showConfirmDialog((Component)null, "¿Hay más mascotas?");
             if (respuesta != 0) {
                 seguir = false;
             }
+        }
+    }
+
+    public static void guardarClientes() throws Exception
+    {
+        boolean seguir = true;
+        listaClientes = new ArrayList<>();
+
+        while(seguir) {
+            listaClientes.add(new Cliente(
+                    solicitarDato("Nombre","Introduce el nombre","^[A-Z][a-z]+([ ][A-Z][a-z]+)*$"),
+                    solicitarDato("Dirección","Introduce la dirección","^C/ [A-Z][a-z]+([ ][A-Z][a-z]+)* [0-9]{1,3} [0-9][a-zA-Z]$" ),
+                    solicitarDato("Teléfono","Introduce el teléfono","^[6789][0-9]{8}$") ));
+
+            int respuesta = JOptionPane.showConfirmDialog(null,"¿Hay más clientes?");
+            if (respuesta != 0)
+                seguir = false;
+        }
+    }
+
+    public static void menu() throws Exception{
+        String[] options = new String[] {"1","2","3","4","5","6"};
+
+        int input = JOptionPane.showOptionDialog(null,"1: Mostrar clientes con perros o gatos" +
+                "\n2: Datos de cliente a partir de una mascota" + "\n3: Datos de veterinario a partir de una mascota" +
+                "\n4: Mascotas de un cliente" + "\n5: Mascotas de un veterinario" + "6: Salir", "Opciones", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE, null, options, null);
+
+        switch (input) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
         }
     }
 }

@@ -7,86 +7,99 @@ import Clases.Empresa;
 import javax.swing.*;
 import java.util.ArrayList;
 
+
+/* Falté a esta clase y le pedí a Yeray que me pasase el ejercicio para verlo en casa y entenderlo. He adaptado cosas
+para encontrarlo más cómodo a la hora de repasar. Como las funciones que me piden en las clases no las utilizo, he hecho
+simples void que no contienen nada */
+
 public class Main {
-    static ArrayList<Empleado> aEmpleados = new ArrayList<>();
-    static ArrayList<Cliente> aCliente = new ArrayList<>();
-    static ArrayList<Directivo> aDirectivo = new ArrayList<>();
-    static ArrayList<Empresa> aEmpresa = new ArrayList<>();
+    static ArrayList<Empleado> listaEmpleados;
+    static ArrayList<Cliente> listaClientes;
+    static ArrayList<Directivo> listaDirectivos;
+    static ArrayList<Empresa> listaEmpresas;
 
     public static void main(String[] args) {
-        crearEmpleados();
-        crearClientes();
-        crearDirectivos();
-        crearEmpresas();
-        masSubordinados();
+        try {
+            crearEmpleados();
+            crearClientes();
+            crearDirectivos();
+            crearEmpresas();
+            masSubordinados();
+        }
+        catch (Exception e) {
+            System.out.println(e.getClass());
+            JOptionPane.showMessageDialog(null,"Se ha producido un error. La aplicación se cerrará");
+        }
     }
 
     public static void crearEmpleados() {
-        Empleado peter = new Empleado("Manu", 23, 1200);
-        aEmpleados.add(peter);
-        Empleado ander = new Empleado("Laura", 21, 1300);
-        aEmpleados.add(ander);
-        Empleado manuel = new Empleado("Yeray", 20, 1400);
-        aEmpleados.add(manuel);
-        Empleado juan = new Empleado("Adrián", 54, 1900);
-        aEmpleados.add(juan);
+        listaEmpleados = new ArrayList<>();
+        Empleado a = new Empleado("Manu", 32, 1500);
+        listaEmpleados.add(a);
+        Empleado b = new Empleado("Laura", 19, 1500);
+        listaEmpleados.add(b);
+        Empleado c = new Empleado("Yeray", 32, 3000);
+        listaEmpleados.add(c);
+        Empleado d = new Empleado("Adrián", 27, 3000);
+        listaEmpleados.add(d);
     }
 
     public static void crearClientes() {
-        Cliente cli1 = new Cliente("Ruben", 21, 111111111);
-        aCliente.add(cli1);
-        Cliente cli2 = new Cliente("Eneko", 21, 222222222);
-        aCliente.add(cli2);
-        Cliente cli3 = new Cliente("Imanol", 21, 333333333);
-        aCliente.add(cli3);
+
+        listaClientes = new ArrayList<>();
+        Cliente a = new Cliente("Iñigo", 19, 111111111);
+        listaClientes.add(a);
+        Cliente b = new Cliente("Damián", 19, 222222222);
+        listaClientes.add(b);
+        Cliente c = new Cliente("Ania", 19, 333333333);
+        listaClientes.add(c);
     }
 
     public static void crearDirectivos() {
+
         ArrayList<Empleado> lista;
+        listaDirectivos = new ArrayList<>();
 
-
-        /* Creacion del dir Yeray */
         lista = new ArrayList();
-        lista.add(aEmpleados.get(0));
-        lista.add(aEmpleados.get(1));
-        lista.add(aEmpleados.get(2));
-        Directivo dir1 = new Directivo("Yeray", 18, 2000, "Marketing", lista);
-        aDirectivo.add(dir1);
+        lista.add(listaEmpleados.get(0));
+        lista.add(listaEmpleados.get(1));
+        lista.add(listaEmpleados.get(2));
 
-        /* Creacion del dir Aritz */
-        lista = new ArrayList();
-        lista.add(aEmpleados.get(0));
-        lista.add(aEmpleados.get(3));
-        Directivo dir2 = new Directivo("Aritz", 14, 2200, "Notario", lista);
-        aDirectivo.add(dir2);
 
-        /* Creacion del dir Nacho */
+        Directivo a = new Directivo("Yeray", 18, 2000, "Marketing", lista);
+        listaDirectivos.add(a);
+
         lista = new ArrayList();
-        lista.add(aEmpleados.get(0));
-        lista.add(aEmpleados.get(1));
-        lista.add(aEmpleados.get(2));
-        lista.add(aEmpleados.get(3));
-        Directivo dir3 = new Directivo("Nacho", 23, 2500, "Relaciones Publicas", lista);
-        aDirectivo.add(dir3);
+        lista.add(listaEmpleados.get(0));
+        lista.add(listaEmpleados.get(3));
+        Directivo b = new Directivo("Aritz", 14, 2200, "Notario", lista);
+        listaDirectivos.add(b);
+
+        lista = new ArrayList();
+        lista.add(listaEmpleados.get(0));
+        lista.add(listaEmpleados.get(1));
+        lista.add(listaEmpleados.get(2));
+        lista.add(listaEmpleados.get(3));
+        Directivo c = new Directivo("Nacho", 23, 2500, "Relaciones Publicas", lista);
+        listaDirectivos.add(c);
     }
 
     public static void crearEmpresas() {
-        Empresa emp1 = new Empresa("RUINASA", aEmpleados, aCliente);
-        aEmpresa.add(emp1);
+        listaEmpresas = new ArrayList<>();
+        Empresa a = new Empresa("Egoland", listaEmpleados, listaClientes);
+        listaEmpresas.add(a);
     }
 
     public static void masSubordinados() {
-        int maximo = 0;
+        int max = 0;
         int posicion = 0;
-        for (int x = 0; x < aDirectivo.size(); x++) {
-            if (aDirectivo.get(x).getEmpleados().size() > maximo) {
-                maximo = aDirectivo.get(x).getEmpleados().size();
+        for (int x = 0; x < listaDirectivos.size(); x++) {
+            if (listaDirectivos.get(x).getEmpleados().size() > max) {
+                max = listaDirectivos.get(x).getEmpleados().size();
                 posicion = x;
             }
         }
-        JOptionPane.showMessageDialog(null, "El directivo con mas subordinador es " +
-                aDirectivo.get(posicion).getNombre() + " con " + maximo + " subordinados");
+        JOptionPane.showMessageDialog(null, "El directivo con más subordinados es " +
+                listaDirectivos.get(posicion).getNombre() + " (" + max + ")");
     }
 }
-
-
