@@ -16,4 +16,10 @@ public class Empleado extends Persona{
     public void setSueldoBruto(float sueldoBruto) {
         this.sueldoBruto = sueldoBruto;
     }
+
+    public void calcularSalario() {
+    }
+
+    public void mostrar() {
+    }
 }

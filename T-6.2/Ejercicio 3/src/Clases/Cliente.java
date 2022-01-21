@@ -2,18 +2,21 @@ package Clases;
 
 public class Cliente extends Persona{
 
-    private String telefono;
+    private int telefono;
 
-    public Cliente(String nombre, int edad, String telefono) {
+    public Cliente(String nombre, int edad, int telefono) {
         super(nombre, edad);
         this.telefono = telefono;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public void mostrar() {
     }
 }
