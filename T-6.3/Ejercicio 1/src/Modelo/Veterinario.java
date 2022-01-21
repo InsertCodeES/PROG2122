@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public class Veterinario extends Persona
 {
     private String dni;
