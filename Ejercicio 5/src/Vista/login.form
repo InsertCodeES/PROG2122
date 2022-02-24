@@ -16,7 +16,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c23e7" class="javax.swing.JLabel">
+          <component id="c23e7" class="javax.swing.JLabel" binding="jlNIF">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -25,7 +25,7 @@
               <text value="NIF"/>
             </properties>
           </component>
-          <component id="2b992" class="javax.swing.JLabel">
+          <component id="2b992" class="javax.swing.JLabel" binding="jlClave">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -34,7 +34,7 @@
               <text value="Clave"/>
             </properties>
           </component>
-          <component id="94714" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="94714" class="javax.swing.JTextField" binding="tfID">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -42,17 +42,18 @@
             </constraints>
             <properties/>
           </component>
-          <component id="48c50" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+          <component id="48c50" class="javax.swing.JPasswordField" binding="pfClave">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
+              <editable value="false"/>
               <enabled value="false"/>
             </properties>
           </component>
-          <component id="195b9" class="javax.swing.JLabel">
+          <component id="195b9" class="javax.swing.JLabel" binding="jlSub">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -75,7 +76,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="302d7" class="javax.swing.JButton" binding="a0Button" default-binding="true">
+          <component id="302d7" class="javax.swing.JButton" binding="b0">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -84,7 +85,7 @@
               <text value="0"/>
             </properties>
           </component>
-          <component id="cbc3f" class="javax.swing.JButton" binding="a1Button" default-binding="true">
+          <component id="cbc3f" class="javax.swing.JButton" binding="b1">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -92,7 +93,7 @@
               <text value="1"/>
             </properties>
           </component>
-          <component id="f71ea" class="javax.swing.JButton" binding="a2Button" default-binding="true">
+          <component id="f71ea" class="javax.swing.JButton" binding="b2">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -100,7 +101,7 @@
               <text value="2"/>
             </properties>
           </component>
-          <component id="8f866" class="javax.swing.JButton" binding="a3Button" default-binding="true">
+          <component id="8f866" class="javax.swing.JButton" binding="b3">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -108,7 +109,7 @@
               <text value="3"/>
             </properties>
           </component>
-          <component id="bd29a" class="javax.swing.JButton" binding="a4Button" default-binding="true">
+          <component id="bd29a" class="javax.swing.JButton" binding="b4">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -116,7 +117,7 @@
               <text value="4"/>
             </properties>
           </component>
-          <component id="5b129" class="javax.swing.JButton" binding="a5Button" default-binding="true">
+          <component id="5b129" class="javax.swing.JButton" binding="b5">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -124,7 +125,7 @@
               <text value="5"/>
             </properties>
           </component>
-          <component id="686cb" class="javax.swing.JButton" binding="a6Button" default-binding="true">
+          <component id="686cb" class="javax.swing.JButton" binding="b6">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -132,7 +133,7 @@
               <text value="6"/>
             </properties>
           </component>
-          <component id="594f0" class="javax.swing.JButton" binding="a7Button" default-binding="true">
+          <component id="594f0" class="javax.swing.JButton" binding="b7">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -140,7 +141,7 @@
               <text value="7"/>
             </properties>
           </component>
-          <component id="b90bb" class="javax.swing.JButton" binding="a8Button" default-binding="true">
+          <component id="b90bb" class="javax.swing.JButton" binding="b8">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -148,7 +149,7 @@
               <text value="8"/>
             </properties>
           </component>
-          <component id="bbcbc" class="javax.swing.JButton" binding="a9Button" default-binding="true">
+          <component id="bbcbc" class="javax.swing.JButton" binding="b9">
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -166,7 +167,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a5bf3" class="javax.swing.JButton" binding="accederButton" default-binding="true">
+          <component id="a5bf3" class="javax.swing.JButton" binding="bAcceder">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

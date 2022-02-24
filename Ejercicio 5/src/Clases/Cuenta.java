@@ -9,6 +9,7 @@ public class Cuenta {
 
     public Cuenta(String numero) {
         this.numero = numero;
+        movimientos = new ArrayList<>();
     }
 
     public String getNumero() {
