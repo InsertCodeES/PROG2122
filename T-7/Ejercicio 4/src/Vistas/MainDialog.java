@@ -1,7 +1,5 @@
 package Vistas;
 
-import Modelo.Producto;
-
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -11,8 +9,8 @@ public class MainDialog extends JDialog {
     private JButton buttonCancel;
     private JTextField tFNombre;
     private JTextField tFUnidades;
-    private JRadioButton compraRadioButton;
-    private JRadioButton ventaRadioButton;
+    private JRadioButton rbCompra;
+    private JRadioButton rbVenta;
     private JTextField tfPrecioCompra;
     private JTextField tfImporteCompra;
     private JComboBox cbProveedor;
@@ -39,6 +37,7 @@ public class MainDialog extends JDialog {
     private JPanel jpCompra;
     private JLabel lImporteCompra;
     private JLabel lProveedor;
+    private JPanel jpCabecera;
 
     public MainDialog() {
         setContentPane(contentPane);
@@ -71,7 +70,7 @@ public class MainDialog extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-        compraRadioButton.addFocusListener(new FocusAdapter() {
+        rbCompra.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
                 super.focusGained(e);
@@ -96,7 +95,7 @@ public class MainDialog extends JDialog {
             }
         });
 
-        ventaRadioButton.addFocusListener(new FocusAdapter() {
+        rbVenta.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
                 super.focusGained(e);
@@ -125,7 +124,6 @@ public class MainDialog extends JDialog {
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-
             }
         });
     }
@@ -136,7 +134,6 @@ public class MainDialog extends JDialog {
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 
