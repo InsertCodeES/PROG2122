@@ -5,17 +5,16 @@ import Vista.crearEvento;
 import Vista.principal;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.sql.Date;
 
 public class Main {
+
+    public static boolean error = false;
 
     public static void main(String[] args) {
         ventana();
@@ -55,28 +54,34 @@ public class Main {
 
     public static void crearevento(String nombre, String lugar, String date, String horai, String horaf, String afor) throws ParseException {
         try {
-            Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate fecha = LocalDate.parse(date,dtf);
 
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-            java.util.Date d1 =(java.util.Date)format.parse(horai);
+            java.util.Date d1 = format.parse(horai);
             java.sql.Time horainicio = new java.sql.Time(d1.getTime());
-            java.util.Date d2 =(java.util.Date)format.parse(horaf);
+            java.util.Date d2 = format.parse(horaf);
             java.sql.Time horafinal = new java.sql.Time(d1.getTime());
 
             int aforo = Integer.parseInt(afor);
-            Evento a = new Evento(nombre,lugar,fecha,horai,horaf,afor);
+            Evento a = new Evento(nombre,lugar,fecha,horainicio,horafinal,aforo);
 
-            Statement sentencia = conectarbbdd().createStatement();
-
-            sentencia.executeUpdate(s);
+            String s = "INSERT INTO eventos VALUES (?,?,?,?,?,?);";
+            PreparedStatement ps = conectarbbdd().prepareStatement(s);
+            ps.setString(1, a.getNombre());
+            ps.setString(2, a.getLugar());
+            ps.setDate(3, Date.valueOf(a.getFecha()));
+            ps.setTime(4, a.getHoraInicio());
+            ps.setTime(5, a.getHoraFinal());
+            ps.setInt(6, a.getAforo());
+            ps.executeUpdate();
             conectarbbdd().close();
         }
         catch (Exception e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Error al crear el usuario. Vuelve a intentarlo");
             error = true;
         }
-
-
     }
 
 
