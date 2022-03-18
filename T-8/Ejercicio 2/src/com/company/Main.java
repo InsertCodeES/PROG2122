@@ -1,6 +1,7 @@
 package com.company;
 
 import Modelo.UML.Evento;
+import Vista.cancelarEvento;
 import Vista.crearEvento;
 import Vista.principal;
 
@@ -52,6 +53,15 @@ public class Main {
         frame.setVisible(true);
     }
 
+    public static void ventanaborrarevento() {
+        JFrame frame = new JFrame("cancelarEvento");
+        frame.setLocationRelativeTo(null);
+        frame.setContentPane(new cancelarEvento().cancelarEvento);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     public static void crearevento(String nombre, String lugar, String date, String horai, String horaf, String afor) throws ParseException {
         try {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -84,6 +94,19 @@ public class Main {
         }
     }
 
+    public static void borrarevento(String nombre) {
+        try {
+            String s = "DELETE FROM eventos where nombre = ?;";
+            PreparedStatement ps = conectarbbdd().prepareStatement(s);
+            ps.setString(1, nombre);
+            ps.executeUpdate();
 
-
+            conectarbbdd().close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error al borrar el usuario. Vuelve a intentarlo");
+            error = true;
+        }
+    }
 }

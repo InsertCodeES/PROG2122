@@ -32,8 +32,26 @@ public class crearEvento {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    Main.crearevento(tfNombre.getText(),tfLugar.getText(),tfFecha.getText(),tfInicio.getText(),
-                            tfFinal.getText(),tfAforo.getText());
+                    if (tfNombre.getText().equals("") || tfLugar.getText().equals("") || tfFecha.getText().equals("") ||
+                            tfInicio.getText().equals("") || tfFinal.getText().equals("") ||
+                            tfAforo.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null,"Faltan datos. Vuelva a intentarlo");
+                        tfNombre.setText("");
+                        tfLugar.setText("");
+                        tfFecha.setText("");
+                        tfInicio.setText("");
+                        tfFinal.setText("");
+                        tfAforo.setText("");
+                        throw new Exception();
+                    }
+                    else {
+                        Main.crearevento(tfNombre.getText(),tfLugar.getText(),tfFecha.getText(),tfInicio.getText(),
+                                tfFinal.getText(),tfAforo.getText());
+                    }
+
+                    if (Main.error) {
+                        throw new Exception();
+                    }
                     JOptionPane.showMessageDialog(null, "Evento creado correctamente");
                     tfNombre.setText("");
                     tfLugar.setText("");
@@ -42,8 +60,7 @@ public class crearEvento {
                     tfFinal.setText("");
                     tfAforo.setText("");
 
-                } catch (ParseException e) {
-                    JOptionPane.showMessageDialog(null,"Error al crear el evento. Vuelva a intentarlo");
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                     tfNombre.setText("");
                     tfLugar.setText("");

@@ -23,6 +23,12 @@
               <text value="Crear evento"/>
             </properties>
           </component>
+          <component id="39862" class="javax.swing.JButton" binding="bCancelar">
+            <constraints/>
+            <properties>
+              <text value="Cancelar evento"/>
+            </properties>
+          </component>
         </children>
       </toolbar>
     </children>

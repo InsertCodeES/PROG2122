@@ -10,12 +10,19 @@ public class principal {
     public JPanel jpPrincipal;
     private JButton bCrear;
     private JToolBar jtOpciones;
+    private JButton bCancelar;
 
     public principal() {
         bCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Main.ventanacrearevento();
+            }
+        });
+        bCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Main.ventanaborrarevento();
             }
         });
     }
